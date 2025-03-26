@@ -47,7 +47,11 @@ class Transaction {
     }
 }
 
+<<<<<<< HEAD
  public class BankSystemGUI extends JFrame {
+=======
+public class BankSystemGUI extends JFrame {
+>>>>>>> cb9b428 (Updated UI)
     private static final String USERS_FILE = "users.txt";
     private static final String TRANSACTIONS_FILE = "transactions.txt";
     private List<UserData> users = new ArrayList<>();
@@ -60,12 +64,20 @@ class Transaction {
     private CardLayout cardLayout;
     private final HashMap<String, JPanel> panelMap = new HashMap<>();
     
+<<<<<<< HEAD
      // Dashboard components
      private JLabel userNameLabel;
      private JLabel accountNumberLabel;
      private JLabel balanceLabel;
      private DefaultTableModel transactionModel;
 
+=======
+    // Dashboard components
+    private JLabel userNameLabel;
+    private JLabel accountNumberLabel;
+    private JLabel balanceLabel;
+    private DefaultTableModel transactionModel;
+>>>>>>> cb9b428 (Updated UI)
 
     public BankSystemGUI() {
         // Setup the main frame
@@ -91,7 +103,17 @@ class Transaction {
         // Show login screen
         cardLayout.show(mainPanel, "Login");
         setVisible(true);
+<<<<<<< HEAD
         
+=======
+    }
+
+    // Method to clear text fields
+    private void clearFields(JTextField... fields) {
+        for (JTextField field : fields) {
+            field.setText("");
+        }
+>>>>>>> cb9b428 (Updated UI)
     }
 
     private void createLoginPanel() {
@@ -153,8 +175,11 @@ class Transaction {
         mainPanel.add(loginPanel, "Login");
     }
     
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> cb9b428 (Updated UI)
     private void createRegisterPanel() {
         JPanel registerPanel = new JPanel();
         registerPanel.setLayout(new BoxLayout(registerPanel, BoxLayout.Y_AXIS));
@@ -241,6 +266,13 @@ class Transaction {
     private void createDashboardPanel() {
         JPanel dashboardPanel = new JPanel(new BorderLayout());
 
+<<<<<<< HEAD
+=======
+        // Top panel with user info
+        JPanel userInfoPanel = new JPanel();
+        userInfoPanel.setLayout(new BoxLayout(userInfoPanel, BoxLayout.Y_AXIS));
+        
+>>>>>>> cb9b428 (Updated UI)
         userNameLabel = new JLabel();
         userNameLabel.setHorizontalAlignment(JLabel.CENTER);
         accountNumberLabel = new JLabel();
@@ -248,6 +280,7 @@ class Transaction {
         balanceLabel = new JLabel();
         balanceLabel.setHorizontalAlignment(JLabel.CENTER);
         
+<<<<<<< HEAD
         transactionModel = new DefaultTableModel(
             new Object[] {"Type", "From", "To", "Amount", "Date"}, 0);
         
@@ -260,10 +293,13 @@ class Transaction {
         // Update user info panel layout
         JPanel userInfoPanel = new JPanel();
         userInfoPanel.setLayout(new BoxLayout(userInfoPanel, BoxLayout.Y_AXIS));
+=======
+>>>>>>> cb9b428 (Updated UI)
         userInfoPanel.add(userNameLabel);
         userInfoPanel.add(accountNumberLabel);
         userInfoPanel.add(balanceLabel);
 
+<<<<<<< HEAD
           // Transaction history
           JTable transactionTable = new JTable(transactionModel);
           JScrollPane scrollPane = new JScrollPane(transactionTable);
@@ -276,6 +312,11 @@ class Transaction {
         // Transaction History Tab
         JPanel historyPanel = new JPanel(new BorderLayout());
         DefaultTableModel transactionModel = new DefaultTableModel(
+=======
+        // Transaction History Tab
+        JPanel historyPanel = new JPanel(new BorderLayout());
+        transactionModel = new DefaultTableModel(
+>>>>>>> cb9b428 (Updated UI)
             new Object[] {"Type", "From", "To", "Amount", "Date"}, 0);
         JTable transactionTable = new JTable(transactionModel);
         JScrollPane scrollPane = new JScrollPane(transactionTable);
@@ -331,6 +372,10 @@ class Transaction {
         depositWithdrawPanel.add(Box.createVerticalGlue());
         
         // Add tabs to tabbed pane
+<<<<<<< HEAD
+=======
+        JTabbedPane tabbedPane = new JTabbedPane();
+>>>>>>> cb9b428 (Updated UI)
         tabbedPane.addTab("Transaction History", historyPanel);
         tabbedPane.addTab("Transfer Money", transferPanel);
         tabbedPane.addTab("Deposit/Withdraw", depositWithdrawPanel);
@@ -451,6 +496,7 @@ class Transaction {
             cardLayout.show(mainPanel, "Login");
         });
         
+<<<<<<< HEAD
         // Store references
         dashboardPanel.putClientProperty("userNameLabel", userNameLabel);
         dashboardPanel.putClientProperty("accountNumberLabel", accountNumberLabel);
@@ -462,11 +508,15 @@ class Transaction {
                 // Add to panel map
                 panelMap.put("Dashboard", dashboardPanel);
                 mainPanel.add(dashboardPanel, "Dashboard");
+=======
+        mainPanel.add(dashboardPanel, "Dashboard");
+>>>>>>> cb9b428 (Updated UI)
     }
     
     private void updateDashboard() {
         if (currentUser == null) return;
 
+<<<<<<< HEAD
          // Update using instance variables
          userNameLabel.setText("Welcome, " + currentUser.firstName + " " + currentUser.lastName);
          accountNumberLabel.setText("Account #: " + currentUser.accountNumber);
@@ -493,6 +543,27 @@ class Transaction {
     
     // File handling methods
     private void saveUsers() {
+=======
+        // Update user info
+        userNameLabel.setText("Welcome, " + currentUser.firstName + " " + currentUser.lastName);
+        accountNumberLabel.setText("Account #: " + currentUser.accountNumber);
+        balanceLabel.setText("Balance: $" + currentUser.balance);
+        
+        // Update transaction history
+        transactionModel.setRowCount(0);
+        List<Transaction> userTransactions = getTransactions(currentUser.username);
+        for (Transaction t : userTransactions) {
+            transactionModel.addRow(new Object[]{
+                t.type, t.sender, t.receiver, t.amount, 
+                t.timestamp.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+            });
+        }
+    }    
+
+
+     // File handling methods
+     private void saveUsers() {
+>>>>>>> cb9b428 (Updated UI)
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(USERS_FILE))) {
             writer.write("AccountNumber|FirstName|LastName|UserName|Password|Balance\n");
             for (UserData user : users) {
@@ -665,6 +736,11 @@ class Transaction {
         return userTransactions;
     }
     
+<<<<<<< HEAD
+=======
+    // Rest of the methods remain the same as in the original code (loadUsers, loadTransactions, etc.)
+    
+>>>>>>> cb9b428 (Updated UI)
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -676,4 +752,8 @@ class Transaction {
             new BankSystemGUI();
         });
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cb9b428 (Updated UI)
