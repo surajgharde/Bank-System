@@ -1,0 +1,3 @@
+AccountNumber|FirstName|LastName|UserName|Password|Balance
+1000101|Suraj|Gharde|surajgharde|suraj123|160000
+1000102|Vaibhav|Datkhil|vaibhavdatkhil|vaibhav123|100000

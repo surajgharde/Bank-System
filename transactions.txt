@@ -1,0 +1,3 @@
+Sender|Receiver|Amount|Type|Timestamp
+Bank|surajgharde|20000|Credit|2025-03-26T11:04:04.9779063
+vaibhavdatkhil|surajgharde|20000|Transfer|2025-03-26T11:06:06.8599405
