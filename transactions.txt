@@ -23,3 +23,6 @@ surajgharde|sahilghate|8000|Transfer|2025-03-27T20:10:04.0693482
 surajgharde|satwikharpale|10000|Transfer|2025-03-27T20:10:25.3074136
 Bank|ashishbirajdar|10000|Credit|2025-04-01T13:25:19.5389686
 satwikharpale|Bank|10000|Debit|2025-04-01T13:26:19.996522
+surajgharde|vaibhavdatkhil|10000|Transfer|2025-04-06T23:44:10.0524145
+Bank|surajgharde|1000|Credit|2025-04-06T23:44:31.3223214
+surajgharde|Bank|2000|Debit|2025-04-06T23:44:52.7139217
