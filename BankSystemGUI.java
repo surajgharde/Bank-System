@@ -170,6 +170,7 @@ public class BankSystemGUI extends JFrame {
         mainPanel.add(loginPanel, "Login");
     }
 
+    
     private void performLogin(JTextField usernameField, JPasswordField passwordField) {
         String username = usernameField.getText().trim();
         String password = new String(passwordField.getPassword()).trim();
@@ -334,7 +335,7 @@ public class BankSystemGUI extends JFrame {
     accountNumberLabel = new JLabel("Account #: 1000101");
     accountNumberLabel.setFont(accountDetailsFont);
     
-    balanceLabel = new JLabel("Balance: $160000");
+    balanceLabel = new JLabel("Balance: ₹160000");
     balanceLabel.setFont(accountDetailsFont);
 
     userInfoPanel.setBorder(BorderFactory.createCompoundBorder(
@@ -569,7 +570,7 @@ public class BankSystemGUI extends JFrame {
         // Update user info
         userNameLabel.setText("Welcome, " + currentUser.firstName + " " + currentUser.lastName);
         accountNumberLabel.setText("Account #: " + currentUser.accountNumber);
-        balanceLabel.setText("Balance: $" + currentUser.balance);
+        balanceLabel.setText("Balance: ₹" + currentUser.balance);
         
         // Update transaction history
         transactionModel.setRowCount(0);
@@ -580,15 +581,9 @@ public class BankSystemGUI extends JFrame {
                 t.timestamp.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
             });
         }
-    }   // Update transaction history
+    }    
        
     
- 
-    
-    
-    
-    
-
 
      // File handling methods
      private void saveUsers() {
