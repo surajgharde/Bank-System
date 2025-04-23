@@ -104,7 +104,7 @@ public class BankSystemGUI extends JFrame {
         usernameField.setPreferredSize(new Dimension(250, 35));
     
         JLabel passwordLabel = new JLabel("Password:");
-        JPasswordField passwordField = new JPasswordField(20);
+        JPasswordField passwordField = new JPasswordField(20);  
         passwordField.setPreferredSize(new Dimension(250, 35));
     
         JButton loginButton = new JButton("Login");
@@ -170,7 +170,7 @@ public class BankSystemGUI extends JFrame {
         mainPanel.add(loginPanel, "Login");
     }
 
-    
+
     private void performLogin(JTextField usernameField, JPasswordField passwordField) {
         String username = usernameField.getText().trim();
         String password = new String(passwordField.getPassword()).trim();
@@ -188,6 +188,7 @@ public class BankSystemGUI extends JFrame {
         usernameField.setText("");
         passwordField.setText("");
     }
+
     
     private void createRegisterPanel() {
         JPanel registerPanel = new JPanel();
@@ -311,6 +312,7 @@ public class BankSystemGUI extends JFrame {
         
         mainPanel.add(registerPanel, "Register");
     }
+
     
     private void clearFields(JTextField... fields) {
         for (JTextField field : fields) {
@@ -318,6 +320,7 @@ public class BankSystemGUI extends JFrame {
         }
     }
     
+
     private void createDashboardPanel() {
         JPanel dashboardPanel = new JPanel(new BorderLayout(10, 10));
     dashboardPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -449,6 +452,7 @@ public class BankSystemGUI extends JFrame {
         
         mainPanel.add(dashboardPanel, "Dashboard");
     }
+
     
     private void setupDashboardActionListeners(
         JButton transferButton, JButton depositButton, 
@@ -564,6 +568,7 @@ public class BankSystemGUI extends JFrame {
         });
     }
     
+
     private void updateDashboard() {
         if (currentUser == null) return;
         
@@ -603,6 +608,7 @@ public class BankSystemGUI extends JFrame {
         }
     }
 
+
     private void saveTransactions() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(TRANSACTIONS_FILE))) {
             writer.write("Sender|Receiver|Amount|Type|Timestamp\n");
@@ -618,6 +624,7 @@ public class BankSystemGUI extends JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
     }
+
 
     private void loadUsers() {
         File file = new File(USERS_FILE);
@@ -705,6 +712,7 @@ public class BankSystemGUI extends JFrame {
         return null;
     }
 
+
     public boolean createAccount(String firstName, String lastName, 
                                String username, String password) {
         for (UserData user : users) {
@@ -716,6 +724,7 @@ public class BankSystemGUI extends JFrame {
         return true;
     }
 
+
     public boolean creditMoney(UserData user, int amount) {
         user.balance += amount;
         transactions.add(new Transaction("Bank", user.username, amount, "Credit"));
@@ -723,6 +732,7 @@ public class BankSystemGUI extends JFrame {
         saveUsers();
         return true;
     }
+
 
     public boolean debitMoney(UserData user, int amount) {
         if (user.balance < amount) return false;
@@ -732,6 +742,7 @@ public class BankSystemGUI extends JFrame {
         saveUsers();
         return true;
     }
+
 
     public boolean transferMoney(UserData sender, String recipientUsername, int amount) {
         if (sender.balance < amount) return false;
@@ -750,6 +761,7 @@ public class BankSystemGUI extends JFrame {
         return true;
     }
 
+    
     public List<Transaction> getTransactions(String username) {
         List<Transaction> userTransactions = new ArrayList<>();
         for (Transaction t : transactions) {
