@@ -28,3 +28,4 @@ Bank|surajgharde|1000|Credit|2025-04-06T23:44:31.3223214
 surajgharde|Bank|2000|Debit|2025-04-06T23:44:52.7139217
 Bank|surajgharde|1000|Credit|2025-04-23T20:03:14.644555
 vaibhavdatkhil|surajgharde|10000|Transfer|2025-04-23T20:06:54.7268807
+Bank|vaibhavdatkhil|10000|Credit|2025-04-24T10:04:38.8711706
